@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="uk.co.mkttl.persist.domain">
+
+    <class name="Team" table="TEAM">
+		<id name="_id">
+			<generator class="native"/>
+		</id>
+		<!-- 
+        <id name="_id" type="int" access="field">
+            <column name="_ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="_name" type="java.lang.String" access="field">
+            <column name="_NAME" unique="true" not-null="true" />
+        </property>
+        <property name="_captain" type="java.lang.String" access="field">
+            <column name="_CAPTAIN" />
+        </property>
+        <property name="_registerDate" type="java.util.Date" access="field">
+            <column name="_REGISTERDATE" />
+        </property>
+        <property name="_active" type="boolean" access="field">
+            <column name="_ACTIVE" />
+        </property>
+         -->
+    </class>
+    
+</hibernate-mapping>

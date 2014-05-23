@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"    
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop.xsd">
+	
+	<context:component-scan base-package="uk.co.mkttl.test"/>
+	<tx:annotation-driven transaction-manager="txManager"/>
+
+    <bean id="txManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="hibernateSessionFactory" />
+	</bean>
+<!-- 
+	<tx:advice id="txAdvice" transaction-manager="txManager"> 
+		<tx:attributes>
+			<tx:method name="save*" propagation="REQUIRED"/> 
+			<tx:method name="add*" propagation="REQUIRED"/> 
+			<tx:method name="create*" propagation="REQUIRED"/> 
+			<tx:method name="insert*" propagation="REQUIRED"/> 
+			<tx:method name="*" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+	
+    <aop:config>
+        <aop:pointcut id="dbServicePointcut" expression="execution(* uk.co.mkttl.persist.test..*Service.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="dbServicePointcut"/>
+    </aop:config>
+ -->  
+ </beans>
+  
